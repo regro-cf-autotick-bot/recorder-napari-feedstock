@@ -44,7 +44,7 @@ requirements:
     - superqt >=0.2.4
     - tifffile
     - tqdm >=4.61.1
-    - waveorder >=1.0.0b0
+    - waveorder ==1.0.0b0
     - zarr >=2.6.1
 
 test:
