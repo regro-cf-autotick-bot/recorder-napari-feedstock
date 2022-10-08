@@ -1,5 +1,5 @@
 {% set name = "recorder-napari" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/recOrder-napari-{{ version }}.tar.gz
-  sha256: 620341f8a904e4c749b6097cfe69fc64d6ee4bede9986ef4c4ac4e4b50c940ea
+  sha256: 203f9d8144000b1f48c6ddeed564a63ce3f15d8a8496c53684517ecadd035f1e
   patches:
     - modules.patch
 
