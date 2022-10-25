@@ -10,6 +10,7 @@ source:
   sha256: 1f6be37bb43cf8a9ab450b910676507a88636c27b3394fe7da98fbc4e85272d5
   patches:
     - modules.patch
+    - qtpy.patch
 
 build:
   entry_points:
