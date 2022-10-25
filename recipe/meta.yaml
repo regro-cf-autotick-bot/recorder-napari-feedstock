@@ -1,5 +1,5 @@
 {% set name = "recorder-napari" %}
-{% set version = "0.1.2" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/recOrder-napari-{{ version }}.tar.gz
-  sha256: 64728d224b36a5453f7ca995e5b4f4ef6ade34906502c84b37637e5b8c41e2da
+  sha256: 203f9d8144000b1f48c6ddeed564a63ce3f15d8a8496c53684517ecadd035f1e
   patches:
     - modules.patch
     - qtpy.patch
 
 build:
   entry_points:
-    - recOrder.reconstruct = recOrder.scripts.run_pipeline:main
-    - recOrder.help = recOrder.scripts.help:main
-    - recOrder.convert = recOrder.scripts.convert_tiff_to_zarr:main
+    - recorder = recOrder.scripts.cli:help
+    - recorder.reconstruct = recOrder.scripts.cli:reconstruct
+    - recorder.convert = recOrder.scripts.cli:convert
+    - recOrder = recOrder.scripts.cli:help
+    - recOrder.reconstruct = recOrder.scripts.cli:reconstruct
+    - recOrder.convert = recOrder.scripts.cli:convert
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -29,12 +32,16 @@ requirements:
   run:
     - click >=8.0.1
     - colorspacious >=1.1.2
+    - importlib-metadata
     - matplotlib-base >=3.4.3
     - napari
     - napari-ome-zarr >=0.3.2
     - natsort >=7.1.1
     - numpy >=1.17.4
+    - numpydoc
     - opencv >=4.5.3.56
+    - psutil
+    - packaging
     - pycromanager >=0.17
     - pyqtgraph >=0.12.3
     - python >=3.7
@@ -45,26 +52,28 @@ requirements:
     - superqt >=0.2.4
     - tifffile
     - tqdm >=4.61.1
-    - waveorder ==1.0.0b0
+    - waveorder ==1.0.0rc0
     - zarr >=2.6.1
 
 test:
   imports:
     - recOrder
-    - recOrder.io
+    - recOrder.acq
+    - recOrder.calib
     - recOrder.compute
     - recOrder.pipelines
-    - recOrder.postproc
-    - recOrder.preproc
-    - recOrder.scripts.run_pipeline
-    - recOrder.scripts.convert_tiff_to_zarr
+    - recOrder.plugin
+    - recOrder.scripts
     - recOrder.scripts.md5_check_sum
   commands:
     - pip list
     - pip check
-    - recOrder.help
-    # - recOrder.reconstruct --help  # Uncomment when fixed upstream
-    # - recOrder.convert --help  # Uncomment when fixed upstream
+    - recOrder --help
+    - recOrder.reconstruct --help
+    - recOrder.convert --help
+    - recorder --help
+    - recorder.reconstruct --help
+    - recorder.convert --help
   requires:
     - pip
 
@@ -76,7 +85,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - goanpeca
+    - jaimergp
     - mattersoflight
     - talonchandler
-    - jaimergp
-    - goanpeca
