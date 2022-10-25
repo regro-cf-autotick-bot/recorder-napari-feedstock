@@ -14,9 +14,12 @@ source:
 
 build:
   entry_points:
-    - recOrder.reconstruct = recOrder.scripts.run_pipeline:main
-    - recOrder.help = recOrder.scripts.help:main
-    - recOrder.convert = recOrder.scripts.convert_tiff_to_zarr:main
+    - recorder = recOrder.scripts.cli:help
+    - recorder.reconstruct = recOrder.scripts.cli:reconstruct
+    - recorder.convert = recOrder.scripts.cli:convert
+    - recOrder = recOrder.scripts.cli:help
+    - recOrder.reconstruct = recOrder.scripts.cli:reconstruct
+    - recOrder.convert = recOrder.scripts.cli:convert
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -55,20 +58,22 @@ requirements:
 test:
   imports:
     - recOrder
-    - recOrder.io
+    - recOrder.acq
+    - recOrder.calib
     - recOrder.compute
     - recOrder.pipelines
-    - recOrder.postproc
-    - recOrder.preproc
-    - recOrder.scripts.run_pipeline
-    - recOrder.scripts.convert_tiff_to_zarr
+    - recOrder.plugin
+    - recOrder.scripts
     - recOrder.scripts.md5_check_sum
   commands:
     - pip list
     - pip check
-    - recOrder.help
-    # - recOrder.reconstruct --help  # Uncomment when fixed upstream
-    # - recOrder.convert --help  # Uncomment when fixed upstream
+    - recOrder --help
+    - recOrder.reconstruct --help
+    - recOrder.convert --help
+    - recorder --help
+    - recorder.reconstruct --help
+    - recorder.convert --help
   requires:
     - pip
 
@@ -80,7 +85,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - goanpeca
+    - jaimergp
     - mattersoflight
     - talonchandler
-    - jaimergp
-    - goanpeca
