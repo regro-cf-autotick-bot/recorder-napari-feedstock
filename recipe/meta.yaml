@@ -29,12 +29,16 @@ requirements:
   run:
     - click >=8.0.1
     - colorspacious >=1.1.2
+    - importlib-metadata
     - matplotlib-base >=3.4.3
     - napari
     - napari-ome-zarr >=0.3.2
     - natsort >=7.1.1
     - numpy >=1.17.4
+    - numpydoc
     - opencv >=4.5.3.56
+    - psutil
+    - packaging
     - pycromanager >=0.17
     - pyqtgraph >=0.12.3
     - python >=3.7
