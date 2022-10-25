@@ -10,6 +10,7 @@ source:
   sha256: 203f9d8144000b1f48c6ddeed564a63ce3f15d8a8496c53684517ecadd035f1e
   patches:
     - modules.patch
+    - qtpy.patch
 
 build:
   entry_points:
@@ -29,6 +30,7 @@ requirements:
     - click >=8.0.1
     - colorspacious >=1.1.2
     - matplotlib-base >=3.4.3
+    - napari
     - napari-ome-zarr >=0.3.2
     - natsort >=7.1.1
     - numpy >=1.17.4
@@ -41,8 +43,9 @@ requirements:
     - qtpy
     - scipy >=1.3.0
     - superqt >=0.2.4
+    - tifffile
     - tqdm >=4.61.1
-    - waveorder >=1.0.0b0
+    - waveorder ==1.0.0b0
     - zarr >=2.6.1
 
 test:
