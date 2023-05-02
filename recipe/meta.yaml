@@ -58,7 +58,7 @@ test:
     - recOrder.acq
     - recOrder.calib
     - recOrder.compute
-    - recOrder.pipelines
+    - recOrder.io
     - recOrder.plugin
     - recOrder.scripts
     - recOrder.scripts.md5_check_sum
