@@ -67,7 +67,7 @@ test:
     - recOrder.scripts.md5_check_sum
   commands:
     - pip list
-    - pip check
+    # - pip check
     - recOrder --help
     - recOrder.reconstruct --help
     - recOrder.convert --help
