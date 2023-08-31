@@ -1,11 +1,11 @@
-About recorder-napari
-=====================
+About recorder-napari-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/recorder-napari-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/mehta-lab/recOrder
 
 Package license: BSD-2-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/recorder-napari-feedstock/blob/main/LICENSE.txt)
 
 Summary: Computational microscopy toolkit for label-free imaging
 
