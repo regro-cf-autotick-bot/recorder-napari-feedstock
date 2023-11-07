@@ -8,9 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/recOrder-napari-{{ version }}.tar.gz
   sha256: c0818ca0f7a4b369daea62ac7e9bc9bcca02a89c2c2d9a2a83785767cc4f05de
-  patches:
-    - modules.patch
-    - qtpy.patch
 
 build:
   entry_points:
