@@ -82,7 +82,7 @@ about:
   summary: Computational microscopy toolkit for label-free imaging
   license: BSD-2-Clause
   license_file: LICENSE
-  de_url: https://github.com/mehta-lab/recOrder
+  dev_url: https://github.com/mehta-lab/recOrder
 
 extra:
   recipe-maintainers:
