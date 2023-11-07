@@ -78,10 +78,11 @@ test:
     - pip
 
 about:
-  home: https://github.com/mehta-lab/recOrder
+  home: https://pypi.org/project/recorder
   summary: Computational microscopy toolkit for label-free imaging
   license: BSD-2-Clause
   license_file: LICENSE
+  de_url: https://github.com/mehta-lab/recOrder
 
 extra:
   recipe-maintainers:
