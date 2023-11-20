@@ -73,6 +73,7 @@ test:
     - recorder.convert --help
   requires:
     - pip
+    - pyqt
 
 about:
   home: https://pypi.org/project/recorder
