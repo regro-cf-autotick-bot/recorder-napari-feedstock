@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/recOrder-napari-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/recOrder-napari-{{ version }}.tar.gz
   sha256: 9390bbb1f94a775308c1a4067f660942db1c9026ff841ae732a26f36b17b62f3
   patches:
     - modules.patch
@@ -22,12 +22,12 @@ build:
     - recOrder.convert = recOrder.scripts.cli:convert
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools-scm
   run:
     - click >=8.0.1
@@ -45,7 +45,7 @@ requirements:
     - packaging  # Imported but not in requirements
     - pycromanager ==0.19.2  # Original package ==0.19.2
     - pyqtgraph >=0.12.3
-    - python >=3.8
+    - python >={{ python_min }}
     - pyyaml >=5.4.1
     - qtpy
     - scipy >=1.3.0  # Imported but not in requirements
@@ -76,6 +76,7 @@ test:
     - recorder.convert --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/recorder
